@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wd.entity.mall.computer.mapper">
+	
+	<insert id="addComputer" parameterType="Computer">
+		insert into mall(pic,brand,price,pc_model,pc_size,pc_weight) 
+		values(#{pic},#{brand},#{price},#{pc_model},#{pc_size},#{pc_weight})
+	</insert>
+	
+	<delete id="deleteComputer" parameterType="int">
+		delete from mall where id=#{id}
+	</delete>
+	
+	<update id="updateComputer" parameterType="Computer">
+		update mall set pic=#{pic},brand=#{brand},price=#{price},
+		pc_model=#{pc_model},pc_size=#{pc_size},pc_weight=#{pc_weight}
+		where id=#{id}
+	</update>
+	
+	<select id="getAllComputer" resultType="Computer">
+		select id,pic,brand,price,pc_model,pc_size,pc_weight from mall where pc_model!=''
+	</select>
+
+</mapper>

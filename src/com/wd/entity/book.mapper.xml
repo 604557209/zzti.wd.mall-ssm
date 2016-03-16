@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wd.entity.mall.book.mapper">
+	
+	<insert id="addBook" parameterType="Book">
+		insert into mall(pic,brand,price,book_press,book_isbn,book_pages,book_author) 
+		values(#{pic},#{brand},#{price},#{book_press},#{book_isbn},#{book_pages},#{book_author})
+	</insert>
+	
+	<delete id="deleteBook" parameterType="int">
+		delete from mall where id=#{id}
+	</delete>
+	
+	<update id="updateBook" parameterType="Book">
+		update mall set pic=#{pic},brand=#{brand},price=#{price},book_press=#{book_press},book_isbn=#{book_isbn},book_pages=#{book_pages},book_author=#{book_author}
+		where id=#{id}
+	</update>
+	
+	<select id="getAllBook" resultType="Book">
+		select id,pic,brand,price,book_press,book_isbn,book_pages,book_author from mall where book_isbn!=''
+	</select>
+	
+</mapper>
